@@ -1,0 +1,15 @@
+# Credenciales y secretos — NUNCA subir al repositorio
+.env
+*.env
+*.env.local
+
+# Build outputs
+**/bin/
+**/obj/
+
+# Visual Studio
+.vs/
+*.user
+
+# Docker
+k6.exe

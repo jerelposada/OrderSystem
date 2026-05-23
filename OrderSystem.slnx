@@ -1,0 +1,18 @@
+<Solution>
+  <Folder Name="/src/" />
+  <Folder Name="/src/Api/">
+    <Project Path="src/Api/OrderSystem.Api.csproj" Id="2a41d34e-3716-4d6e-be57-1c386b5e73a2" />
+  </Folder>
+  <Folder Name="/src/Application/">
+    <Project Path="src/application/OrderSystem.Application.csproj" />
+  </Folder>
+  <Folder Name="/src/Domain/">
+    <Project Path="src/Domain/OrderSystem.Domain.csproj" />
+  </Folder>
+  <Folder Name="/src/Infrastructure/">
+    <Project Path="src/Infrastructure/OrderSystem.Infrastructure.csproj" Id="ae1cde3e-e629-4872-a981-1da023281d47" />
+  </Folder>
+  <Folder Name="/src/Worker/">
+    <Project Path="src/Worker/OrderSystem.Worker.csproj" Id="a57e7cc2-714d-41b3-9f2e-71cb31fd6e59" />
+  </Folder>
+</Solution>
