@@ -75,4 +75,45 @@ dotnet ef database update --project src/Infrastructure/OrderSystem.Infrastructur
 
 ---
 
-Si quieres puedo añadir badges, un ejemplo de petición curl o explicar las variables de `.env`.
+![Repo size](https://img.shields.io/github/repo-size/jerelposada/OrderSystem)
+![GitHub stars](https://img.shields.io/github/stars/jerelposada/OrderSystem?style=social)
+
+## Ejemplos y variables
+
+**Ejemplos de uso (curl)**
+
+1) Crear una orden (la API publica el DTO al bus y responde 202 Accepted):
+
+```bash
+curl -X POST http://localhost:5000/api/orders \
+	-H "Content-Type: application/json" \
+	-d '{"customerId":"11111111-1111-1111-1111-111111111111","total":123.45}'
+```
+
+Respuesta esperada: `202 Accepted` (la orden se publica en RabbitMQ y el Worker la procesará).
+
+2) Obtener una orden por id:
+
+```bash
+curl http://localhost:5000/api/orders/11111111-1111-1111-1111-111111111111
+```
+
+3) Listar órdenes (paginado):
+
+```bash
+curl "http://localhost:5000/api/orders?page=1&pageSize=25"
+```
+
+**Variables de entorno importantes**
+
+Rellena `.env` (o define variables de entorno) con al menos las siguientes claves:
+
+- `RABBITMQ__HOST`: URL/host de RabbitMQ (por ejemplo `amqp://localhost`).
+- `RABBITMQ__USER`: usuario de RabbitMQ.
+- `RABBITMQ__PASS`: contraseña de RabbitMQ.
+- `CONNECTION_STRING` o `ConnectionStrings__Default`: cadena de conexión a la base de datos SQL Server.
+- `SA_PASSWORD`: contraseña para SQL Server (si usas contenedor local).
+
+Nota: .NET permite usar `:` en la configuración (por ejemplo `RabbitMq:Host`), pero en variables de entorno se recomienda usar doble guion bajo `__` para mapear a claves anidadas.
+
+Si quieres, añado un badge de CI (GitHub Actions), ejemplos más completos de request/response, o detallo cada variable del `.env`.
